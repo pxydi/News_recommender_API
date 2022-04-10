@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>News Recommender | Add Document</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='theme.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">News Recommender</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href={{url_for('document')}}>Add Document</a></li>
+            <li><a href={{url_for('similar')}}>Find similar documents</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+
+      <div class="row">
+        <div>
+
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Add document</h3>
+            </div>
+
+            <div class="panel-body">
+
+              <form method="POST" action="{{ url_for('document')}}">
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" name="category" placeholder="category">
+                </div>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="title">
+                </div>
+                <div class="form-group">
+                  <label for="text">Text</label>
+                  <input type="text" class="form-control" id="text" name="doc_text" placeholder="text">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+              </form>
+
+              <div class="page-header"></div>
+
+             {% for doc in results%}
+              <ul class="nav nav-pills" role="tablist">
+                <li class="active"><a>Document: {{doc.id}}</a></li>
+                <li><a>Category: <span class="badge">{{doc.category}}</span></a></li>
+                <li><a>Title: <span class="badge">{{doc.title}}</span></a></li>
+                <li><a><span>{{doc.doc_text}}</span></a></li>
+              </ul>
+              <div class="page-header"></div>
+
+              {% endfor%}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

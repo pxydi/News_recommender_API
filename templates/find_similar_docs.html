@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>News Recommender | Find similar documents</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='theme.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">News Recommender</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href={{url_for('document')}}>Add Document</a></li>
+            <li class="active"><a href="#">Find similar documents</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+
+      <div class="row">
+        <div>
+
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Find similar documents</h3>
+            </div>
+
+            <div class="panel-body">
+
+              <form method="POST" action="{{ url_for('similar')}}">
+                <div class="form-group">
+                  <label for="Text">Text</label>
+                  <input type="text" class="form-control" id="Text" name="sample_text" placeholder="Enter sample text">
+                </div>
+                <div class="form-group">
+                  <label for="k">How many similar documents do you want to return?</label>
+                  <input type="number" class="form-control" id="k" name='k' value=10 placeholder="k">
+                </div>
+                <div class="form-group">
+                  <label for="Categories">Categories (ex. business, tech, entertainment, politics, sport)</label>
+                  <input type="text" class="form-control" id="Categories" name='sample_categories' value=none placeholder="ex. category 1, category 2">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit sample text</button>
+              </form>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
