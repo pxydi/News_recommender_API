@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "Thisisasecret!"
 
 def connect_db():
-    sql = sqlite3.connect('/Users/xydi/Documents/python_work/Random/FlaskIntroduction/Udemy/recommender_app/documents.db')
+    sql = sqlite3.connect('documents.db')
     sql.row_factory = sqlite3.Row
     return sql
 
