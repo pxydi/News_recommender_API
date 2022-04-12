@@ -12,7 +12,7 @@ conda create --name news_recommender python==3.9
 conda activate news_recommender
 pip install -r requirements.txt
 ```
-## Run the `News recommender` app locally on your machine
+## Run the News recommender app locally on your machine
 
 To run the `app.py` script:
 * open the terminal and go to the project folder
